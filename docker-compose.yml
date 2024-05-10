@@ -1,0 +1,10 @@
+services:
+  logix:
+    build: ./
+    container_name: logix
+    hostname: logix
+    entrypoint: gunicorn --bind 0.0.0.0:8000 api.wsgi:application
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
